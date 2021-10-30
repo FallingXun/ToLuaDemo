@@ -55,6 +55,14 @@ namespace LuaInterface
             count = list.Count;
         }
 
+        public void Log()
+        {
+            foreach (var item in list)
+            {
+                UnityEngine.Debug.LogFormat("ObjectPool list[{0}] = {1}", item.index, item.obj);
+            }
+        }
+
         public object this[int i]
         {
             get 

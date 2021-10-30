@@ -152,6 +152,7 @@ public static class CustomSettings
         _GT(typeof(LuaProfiler)),
 
         _GT(typeof(Test1_1)),
+        _GT(typeof(TestRelease_Delegate)),
     };
 
     public static List<Type> dynamicList = new List<Type>()

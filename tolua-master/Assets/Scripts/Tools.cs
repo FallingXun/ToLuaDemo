@@ -39,6 +39,10 @@ public class Tools : MonoBehaviour
             SceneManager.LoadSceneAsync("Empty");
             Debug.Log("Load Scene Empty");
         }
+        else if (GUI.Button(new Rect(m_StartX, m_StartY + m_Space * i++, m_Width, m_Height), "Print objects"))
+        {
+            LuaClient.GetMainState().translator.objects.Log();
+        }
     }
 
     private void Update()

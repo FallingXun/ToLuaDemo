@@ -111,7 +111,7 @@ namespace LuaInterface
         {            
             //只有lua gc才能移除
             object o = objects.Remove(udata);
-
+            Debug.LogFormat("lua gc RemoveObject, udata = {0}" , udata);
             if (o != null)
             {
                 if (!TypeChecker.IsValueType(o.GetType()))

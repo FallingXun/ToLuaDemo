@@ -1,7 +1,8 @@
-collectgarbage("setpause", 100)
+collectgarbage("setpause", 1)
 collectgarbage("setstepmul", 5000)
 
 
+collectgarbage("collect")
 --主入口函数。从这里开始lua逻辑
 function Main()					
 	print("logic start")	 		
@@ -28,11 +29,12 @@ function newClass(luaType)
 
 	function cls.New(...)
 		local instance = setmetatable({}, cls)
-		instance.class = cls
+		-- instance.class = cls
 		instance:Ctor(...)
 		return instance
 	end
 	cls.__index = cls
+	cls.__name = luaType
 	_G[luaType] = cls;
 	return cls;
 end
@@ -40,6 +42,7 @@ end
 
 require("Test1")
 require("TestLua1")
+require("TestDelegate")
 
 -- --场景切换通知
 -- function OnLevelWasLoaded(level)

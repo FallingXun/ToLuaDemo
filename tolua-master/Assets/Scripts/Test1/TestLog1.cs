@@ -37,7 +37,7 @@ public class TestLog1 : MonoBehaviour
                 var test = Instantiate(m_TestGo);
                 m_Test = test.GetComponent<Test1>();
                 LuaClient.GetMainState().translator.Getudata(test, out m_Index);
-                Debug.Log("index = " + m_Index);
+                Debug.Log("GameObject Test1 udata = " + m_Index);
             }
         }
         else if (GUI.Button(new Rect(m_StartX + m_SpaceX * x, m_StartY + m_SpaceY * y++, m_Width, m_Height), "Ïú»ÙGameObject Test1"))
@@ -64,7 +64,7 @@ public class TestLog1 : MonoBehaviour
                 var test = Instantiate(m_TestGo_1);
                 m_Test1_1 = test.GetComponent<Test1_1>();
                 LuaClient.GetMainState().translator.Getudata(test, out m_Index);
-                Debug.Log("index = " + m_Index);
+                Debug.Log("GameObject Test1_1 udata = " + m_Index);
             }
         }
         else if (GUI.Button(new Rect(m_StartX + m_SpaceX * x, m_StartY + m_SpaceY * y++, m_Width, m_Height), "Ïú»ÙGameObject Test1_1"))
