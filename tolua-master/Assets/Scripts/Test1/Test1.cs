@@ -6,24 +6,21 @@ using LuaInterface;
 public class Test1 : MonoBehaviour
 {
     private LuaTable m_LuaTable;
-    //private LuaFunction m_LuaFunction;
 
     // Start is called before the first frame update
     void Awake()
     {
-        m_LuaTable = LuaClient.GetMainState().GetFunction("CreateLua").Invoke<string, LuaTable>("Test1");
+        // 测试临时变量触发析构函数
+        var function = LuaClient.GetMainState().GetFunction("CreateLua");
+        Debug.Log("Test1 临时变量 function reference = " + function.GetReference());
+        m_LuaTable = function.Invoke<string, LuaTable>("Test1");
         m_LuaTable.SetTable("gameObject", gameObject);
-        //m_LuaFunction = m_LuaTable.GetLuaFunction("Update");
-        Debug.Log("table reference = " + m_LuaTable.GetReference());
+        Debug.Log("Test1 成员变量 table reference = " + m_LuaTable.GetReference());
+        var tb = function.Invoke<string, LuaTable>("TestLua1");
+        tb.SetTable("gameObject", gameObject);
+        Debug.Log("Test1 临时变量 table reference = " + tb.GetReference());
     }
 
-    //private void Update()
-    //{
-    //    if (m_LuaFunction != null)
-    //    {
-    //        m_LuaFunction.Call(m_LuaTable);
-    //    }
-    //}
 
     public void Dispose()
     {
@@ -32,12 +29,12 @@ public class Test1 : MonoBehaviour
             m_LuaTable.Dispose();
             m_LuaTable = null;
 
-            Debug.Log("LuaTable Dispose");
+            Debug.Log("Test1 LuaTable Dispose");
         }
     }
 
     void OnDestroy()
     {
-        Dispose();
+        //Dispose();
     }
 }

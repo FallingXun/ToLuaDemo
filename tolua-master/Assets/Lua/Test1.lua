@@ -7,7 +7,7 @@ function Test1:Ctor(...)
 end
 
 function Test1:Init()
-
+    
 end
 
 -- function Test1:Update()

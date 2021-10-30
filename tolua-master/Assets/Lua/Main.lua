@@ -18,10 +18,10 @@ function CreateLua(luaType)
 	if(ltype == nil) then
 		error("类型不存在 " .. tostring(luaType))
 	end
-	
 	local tmp = ltype.New();
 	return tmp;
 end
+
 
 function newClass(luaType)
 	local cls = cls or {};
@@ -39,6 +39,7 @@ end
 
 
 require("Test1")
+require("TestLua1")
 
 -- --场景切换通知
 -- function OnLevelWasLoaded(level)
