@@ -43,6 +43,7 @@ end
 require("Test1")
 require("TestLua1")
 require("TestDelegate")
+require("TestGenericLua")
 
 -- --场景切换通知
 -- function OnLevelWasLoaded(level)

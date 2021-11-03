@@ -603,7 +603,7 @@ namespace LuaInterface
 #endregion
                             /*-------------------------------------------------------------------------------------------*/
 
-                            public static string ToString(IntPtr L, int stackPos)
+        public static string ToString(IntPtr L, int stackPos)
         {
             LuaTypes luaType = LuaDLL.lua_type(L, stackPos);
 

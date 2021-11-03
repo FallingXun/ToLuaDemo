@@ -40,6 +40,7 @@ public static class CustomSettings
         _DT(typeof(System.Action<int>)),
         _DT(typeof(System.Comparison<int>)),
         _DT(typeof(System.Func<int, int>)),
+
     };
 
     //在这里添加你要导出注册到lua的类型列表
@@ -153,6 +154,7 @@ public static class CustomSettings
 
         _GT(typeof(Test1_1)),
         _GT(typeof(TestRelease_Delegate)),
+        _GT(typeof(TestGeneric)),
     };
 
     public static List<Type> dynamicList = new List<Type>()

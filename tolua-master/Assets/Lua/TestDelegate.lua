@@ -2,6 +2,7 @@ local TestDelegate = newClass("TestDelegate")
 
 function TestDelegate:Ctor(...)
     print("TestDelegate.Ctor")
+   
 end
 
 function TestDelegate:Init()

@@ -22,7 +22,6 @@ public class TestRelease_Delegate : MonoBehaviour
         LuaClient.GetMainState().translator.Getudata(this, out int udata2);
         Debug.Log("TestRelease_Delegate gameObject udata = " + udata1);
         Debug.Log("TestRelease_Delegate del udata = " + udata2);
-
     }
 
     // Start is called before the first frame update

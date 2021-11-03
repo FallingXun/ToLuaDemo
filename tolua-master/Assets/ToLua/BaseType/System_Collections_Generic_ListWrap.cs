@@ -43,11 +43,31 @@ public class System_Collections_Generic_ListWrap
 		L.RegFunction("set_Item", set_Item);
         L.RegFunction(".geti", get_Item);
         L.RegFunction(".seti", set_Item);
+        L.RegFunction("New", _CreateSystem_Collections_Generic_List);
         L.RegFunction("__tostring", ToLua.op_ToString);
 		L.RegVar("Capacity", get_Capacity, set_Capacity);
 		L.RegVar("Count", get_Count, null);
         L.EndClass();        
     }
+
+    [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+    static int _CreateSystem_Collections_Generic_List(IntPtr L)
+    {
+        try
+        {
+            ToLua.CheckArgsCount(L, 1);
+            Type arg0 = (Type)ToLua.ToObject(L, 1);
+            Type listType = typeof(List<>).MakeGenericType(arg0);
+            object o = Activator.CreateInstance(listType);
+            ToLua.Push(L, o);
+            return 1;
+        }
+        catch (Exception e)
+        {
+            return LuaDLL.toluaL_exception(L, e);
+        }
+    }
+
 
     [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
     static int Add(IntPtr L)

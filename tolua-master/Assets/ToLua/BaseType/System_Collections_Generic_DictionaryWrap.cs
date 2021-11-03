@@ -22,6 +22,7 @@ public class System_Collections_Generic_DictionaryWrap
         L.RegFunction("Remove", Remove);
         L.RegFunction("TryGetValue", TryGetValue);
         L.RegFunction("GetEnumerator", GetEnumerator);
+        L.RegFunction("New", _CreateSystem_Collections_Generic_Dictionary);
         L.RegVar("this", _this, null);
         L.RegFunction("__tostring", ToLua.op_ToString);
         L.RegVar("Count", get_Count, null);
@@ -30,6 +31,26 @@ public class System_Collections_Generic_DictionaryWrap
         L.RegVar("Values", get_Values, null);
         L.EndClass();
     }
+
+    [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+    static int _CreateSystem_Collections_Generic_Dictionary(IntPtr L)
+    {
+        try
+        {
+            ToLua.CheckArgsCount(L, 2);
+            Type arg0 = (Type)ToLua.ToObject(L, 1);
+            Type arg1 = (Type)ToLua.ToObject(L, 2);
+            Type dicType = typeof(Dictionary<,>).MakeGenericType(arg0, arg1);
+            object o = Activator.CreateInstance(dicType);
+            ToLua.Push(L, o);
+            return 1;
+        }
+        catch (Exception e)
+        {
+            return LuaDLL.toluaL_exception(L, e);
+        }
+    }
+
 
     [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
     static int _get_this(IntPtr L)

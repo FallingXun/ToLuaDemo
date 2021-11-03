@@ -34,14 +34,20 @@ public class Tools : MonoBehaviour
             System.GC.Collect();
             Debug.Log("Call C# GC");
         }
-        else if (GUI.Button(new Rect(m_StartX, m_StartY + m_Space * i++, m_Width, m_Height), "Load Scene"))
+        else if (GUI.Button(new Rect(m_StartX, m_StartY + m_Space * i++, m_Width, m_Height), "Load Empty Scene"))
         {
             SceneManager.LoadSceneAsync("Empty");
             Debug.Log("Load Scene Empty");
         }
+        else if (GUI.Button(new Rect(m_StartX, m_StartY + m_Space * i++, m_Width, m_Height), "Load Empty Scene"))
+        {
+            Resources.UnloadUnusedAssets();
+            Debug.Log("UnloadUnusedAssets");
+        }
         else if (GUI.Button(new Rect(m_StartX, m_StartY + m_Space * i++, m_Width, m_Height), "Print objects"))
         {
             LuaClient.GetMainState().translator.objects.Log();
+           
         }
     }
 
