@@ -23,3 +23,5 @@ SOFTWARE.]]--
 
 --Load All The Injectores
 --require "System.Injection.ToLuaInjectionTestInjector"
+require "System.Injection.Test1_1Injector"
+require "System.Injection.TestLogBaseInjector"

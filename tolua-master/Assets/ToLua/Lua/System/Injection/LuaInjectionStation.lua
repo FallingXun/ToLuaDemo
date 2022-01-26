@@ -61,6 +61,8 @@ local function UpdateFunctionReference(metatable, injectInfo)
 end
 
 function InjectByModule(csModule, injectInfo)
+	print(csModule)
+	print(injectInfo)
 	local mt = Check(csModule)
 	local moduleName = mt[".name"]
 
